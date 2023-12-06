@@ -13,6 +13,12 @@
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
+	header {
+		height: 80px;
+		width: 100%;
+		background-color: brown;
+		color: white;
+	}
 
 </style>
