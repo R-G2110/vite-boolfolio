@@ -2,14 +2,12 @@
 import axios from "axios";
 import { store } from "./data/store";
 import Header from "./components/Header.vue";
-import Main from "./components/Main.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Main,
     Footer,
   },
   data() {
@@ -20,8 +18,10 @@ export default {
   methods: {
     getApi() {
       axios.get(store.apiUrl + "projects").then((results) => {
-        console.log(results.data);
+        console.log(store.projects);
         this.store.projects = results.data.data;
+        this.store.links = results.data.links;
+        console.log(store.links);
       });
     },
   },
@@ -33,7 +33,9 @@ export default {
 
 <template>
   <Header />
-  <Main />
+  <div class="container">
+    <RouterView/>
+  </div>
   <Footer />
 </template>
 

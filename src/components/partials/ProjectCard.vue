@@ -12,7 +12,7 @@ export default {
 		<div class="card">
 				<div class="left">
 						<div class="card-image">
-							<img src="/public/img/No-Image-Placeholder.png" alt="">
+							<img src="/src/img/No-Image-Placeholder.png" alt="">
 							<!-- <img src="{{ $movie->image }}" alt=""> -->
 						</div>
 						<div class="card-title">
@@ -23,9 +23,15 @@ export default {
 				<div class="card-info">
 						<div class="details">
 							<h4>Type:</h4>
-							<p>{{ project.type?.name }}</p>
+							<p v-if="project.type">{{ project.type.name }}</p>
+							<p v-else>no type</p>
+
 							<h4>Technologies:</h4>
 							<p
+								v-if="project.technologies == 0"
+							>no technologies</p>
+							<p
+								v-else
 								v-for="(technology, index) in project.technologies" 
 								:key="index"
 							>- {{ technology.name }}</p>

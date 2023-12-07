@@ -1,12 +1,13 @@
 <script>
 
 import { store } from '../data/store';
-import ProjectCard from './partials/ProjectCard.vue';
+import ProjectCard from '../components/partials/ProjectCard.vue';
+import Navigator from '../components/partials/Navigator.vue';
 
 	export default {
-		name: 'Main',
 		components: {
-      ProjectCard
+      ProjectCard,
+			Navigator
     },
 		data() {
       return {
@@ -18,16 +19,15 @@ import ProjectCard from './partials/ProjectCard.vue';
 </script>
 
 <template>
-	<main>
-		<div class="container">
-			<div class="cards-wrapper">
-				<ProjectCard 
-					v-for="(project, index) in store.projects" 
-					:key="index"
-					:project="project" 
-				/>
-			</div>
+	<main>	
+		<div class="cards-wrapper">
+			<ProjectCard 
+				v-for="(project, index) in store.projects" 
+				:key="index"
+				:project="project" 
+			/>
 		</div>
+		<Navigator />
 	</main>
 </template>
 
